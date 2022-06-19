@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue</title>
+
+        <!-- Vue 2.6.14 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <p>
+                {{ mensagem }} <br />
+                Valor total: {{ valorTotal + 2}} <br />
+                Logado: {{ logado }} <br />
+                Valores: {{ valores }}
+            </p>
+        </div>
+
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    mensagem: 'Primeiro template controlado pelo Vue',
+                    valorTotal: 150.45,
+                    logado: true,
+                    valores: [
+                        1,
+                        'Casa',
+                        4,
+                        'Correr',
+                        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias consectetur consequatur aliquid vero.',
+                    ],
+                },
+            });
+
+            // console.log(vm);
+        </script>
+    </body>
+</html>
