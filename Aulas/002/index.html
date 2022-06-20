@@ -12,11 +12,14 @@
 
     <body>
         <div id="app">
-            <a v-bind:href="site">Site</a>
-            <p v-bind:class="cor">Entendendo a diretiva v-bind</p>
+            <!-- Sintaxe Sugar: omitindo o termo 'v-bind' e deixando apenas o ':' -->
+            <a :href="site">Site</a>
 
-            <input type="text" v-bind:placeholder="instrucaoDePreenchimento" v-bind:value="valor" />
-            <input type="checkbox" v-bind:checked="check" />
+            <!-- A classe será encadeada em class="negrito text-center cinza" -->
+            <p :class="cor" class="negrito text-center">Entendendo a diretiva v-bind</p>
+
+            <input type="text" :placeholder="instrucaoDePreenchimento" :value="valor" />
+            <input type="checkbox" :checked="check" />
         </div>
 
         <script>
