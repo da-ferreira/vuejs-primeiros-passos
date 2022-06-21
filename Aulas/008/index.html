@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue</title>
+
+        <!-- Vue 2.6.14 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+        <style>
+            .azul {
+                background-color: blue;
+            }
+
+            .verde {
+                background-color: green;
+            }
+
+            .vermelho {
+                background-color: red;
+            }
+
+            .branco {
+                background-color: white;
+            }
+
+            .borda {
+                border: 1px solid black;
+            }
+
+            .div-principal {
+                width: 300px;
+                height: 200px;
+            }
+
+            .div-comum {
+                width: 50px;
+                height: 50px;
+                display: inline-block;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <!--  Diretiva V-On - Implementando modificadores -->
+
+            <a href="https://github.com/da-ferreira" target="_blank" @click.prevent="prevenirCOmportamentoPadrao()"
+                >Link</a
+            >
+            <br />
+            Mensagem: {{ msg }}
+            <hr />
+
+            <button @click.once="executarUmaVez()">Botão</button>
+            <p>Cliques: {{ cliques }}</p>
+
+            <hr />
+
+            <!-- Prevenindo uma única vez o comportamento padrão do evento de submit -->
+            <form @submit.prevent.once="prevenirUmaVez()" action="">
+                <button type="submit">Enviar</button>
+            </form>
+
+            <p>Formulário: {{ formulario }}</p>
+
+            <hr />
+
+            <input type="text" @keyup.Control.Shift.Enter="capturandoTeclas($event)" />
+            <p>Teclas: {{ tecla }}</p>
+        </div>
+
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    msg: '',
+                    cliques: 0,
+                    formulario: '',
+                    tecla: '',
+                },
+                methods: {
+                    prevenirCOmportamentoPadrao() {
+                        this.msg = 'Comportamento padrão ativado';
+                    },
+
+                    executarUmaVez() {
+                        this.cliques += 1;
+                    },
+
+                    prevenirUmaVez() {
+                        this.formulario = 'Prevenindo o comportamento padrão';
+                    },
+
+                    capturandoTeclas(e) {
+                        this.tecla = 'Modificadores encadeados com sucesso!';
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
