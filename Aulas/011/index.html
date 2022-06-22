@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue</title>
+
+        <!-- Vue 2.6.14 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+        <!-- Vue 2.6.14 - versão de desenvolvimento, inclui avisos úteis no console  -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+
+        <style></style>
+    </head>
+
+    <body>
+        <div id="app">
+            <!--  
+                Diretiva V-Show - Exibição condicional de elementos HTML.
+                O trecho html é escondido no DOM (utilizando display: none;).
+                A vantagem de utilizar o v-show é a velocidade, porque não precisa
+                renderizar o DOM novamente para exibir o elemento.
+            -->
+
+            <p
+                @mouseover="exibirTextoAjuda = true"
+                @mouseout="exibirTextoAjuda = false"
+                style="display: inline-block"
+            >
+                Exemplo tooltip
+            </p>
+            <div v-show="exibirTextoAjuda">
+                <h3>Título texto de ajuda</h3>
+                <p>Conteúdo texto de ajuda</p>
+            </div>
+        </div>
+
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    exibirTextoAjuda: false,
+                },
+                methods: {},
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue</title>
+
+        <!-- Vue 2.6.14 -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script> -->
+
+        <!-- Vue 2.6.14 - versão de desenvolvimento, inclui avisos úteis no console  -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+        <style></style>
+    </head>
+
+    <body>
+        <div id="app">
+            <!--  
+                Diretiva V-If - Renderização condicional de elementos HTML
+                O trecho html não é inserido no DOM
+            -->
+
+            <!-- v-if -->
+            <button @click="exibirSaldo = !exibirSaldo">
+                <span v-if="!exibirSaldo">Exibir saldo</span>
+                <span v-if="exibirSaldo">Ocultar saldo</span>
+            </button>
+
+            <p>Saldo: <span v-if="exibirSaldo">R$ {{ saldo }}</span></p>
+
+            <hr />
+
+            <!-- v-if e v-else -->
+            Idade: <input type="text" id="inputIdade" @blur="setIdade()" />
+            <p v-if="idade < 18">Menor de idade</p>
+            <p v-else>Maior de idade</p>
+
+            <hr />
+
+            <!-- v-if, v-else-if e v-else -->
+            Nota: <input type="text" id="inputNota" @blur="setNota()" />
+            <p v-if="nota < 6">Reprovado</p>
+            <p v-else-if="nota <= 8">Aprovado</p>
+            <p v-else-if="nota <= 10">Aprovado. Parabens :))</p>
+            <p v-else>Valor de nota inválido. Tente novamente</p>
+        </div>
+
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    saldo: 1387.25,
+                    exibirSaldo: false,
+                    idade: 0,
+                    nota: 0,
+                },
+                methods: {
+                    setIdade() {
+                        this.idade = inputIdade.value;
+                    },
+
+                    setNota() {
+                        this.nota = inputNota.value;
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
