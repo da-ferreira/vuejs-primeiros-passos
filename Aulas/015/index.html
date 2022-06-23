@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue</title>
+
+        <!-- Vue 2.6.14 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+        <!-- Vue 2.6.14 - versão de desenvolvimento, inclui avisos úteis no console  -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+
+        <style></style>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- Diretiva V-For -->
+
+            <ul>
+                <!-- Destructuring assignment (Atribuição via desestruturação) -->
+                <li v-for="({titulo, descricao}, key) in cursos">
+                    {{ key }} | {{ titulo }} | {{ descricao }}
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    cursos: {
+                        1000: {
+                            titulo: 'Laravel',
+                            descricao:
+                                'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+                        },
+                        1001: {
+                            titulo: 'Vue.JS',
+                            descricao:
+                                'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+                        },
+                    },
+                },
+                methods: {},
+            });
+        </script>
+    </body>
+</html>
