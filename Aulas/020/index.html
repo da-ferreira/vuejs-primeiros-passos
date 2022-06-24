@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue</title>
+
+        <!-- Vue 2.6.14 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+        <!-- Vue 2.6.14 - versão de desenvolvimento, inclui avisos úteis no console  -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+
+        <style></style>
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- Diretiva V-Model - Praticando um pouco mais o two-way-data binding -->
+
+            {{ paciente }} <br>
+
+            <!-- Sintaxe mais enxuta -->
+            <input type="text" v-model="paciente">
+            
+            <hr>
+
+            <input type="radio" value="f" v-model="sexo"> Feminino
+            <input type="radio" value="m" v-model="sexo"> Masculino
+
+            <br> {{ sexo }}
+            <hr>
+
+            <select v-model="plano">
+                <option value="" disabled>Selecione um plano</option>
+                <option value="1">Básico 1</option>
+                <option value="2">Básico 2</option>
+                <option value="3">Master</option>
+            </select>
+
+            <br> {{ plano }}
+            <hr>
+
+            <input type="checkbox" value="100" v-model="doencas"> Asma
+            <input type="checkbox" value="101" v-model="doencas"> Covid
+            <input type="checkbox" value="102" v-model="doencas"> Diabetes
+            <input type="checkbox" value="103" v-model="doencas"> Rinite
+
+            <br> {{ doencas }}
+            <hr>
+
+            <textarea cols="30" rows="10" v-model="diagnostico"></textarea>
+            
+            <br> {{ diagnostico }}
+        </div>
+
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    paciente: 'João da Silva',
+                    sexo: '',
+                    plano: '',
+                    doencas: [],
+                    diagnostico: '',
+                },
+                methods: {},
+                computed: {},
+            });
+        </script>
+    </body>
+</html>
